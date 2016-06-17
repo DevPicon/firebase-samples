@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Firebase Samples</string>
+    <string name="button_label">Enviar</string>
+    <string name="edit_text_hint">Ingrese una palabra</string>
+    <string name="text_view_label">Última palabra ingresada:</string>
+    <string name="text_view_initial"><![CDATA[<< Aun no ha ingresado palabra >>]]></string>
+</resources>
