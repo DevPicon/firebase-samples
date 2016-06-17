@@ -36,13 +36,32 @@ public class MainActivity extends AppCompatActivity {
         // Se obtiene referencia a los elementos de la UI
         final Button button1 = (Button) findViewById(R.id.button1);
         final EditText editText1 = (EditText) findViewById(R.id.editText1);
+        final TextView textView2 = (TextView) findViewById(R.id.textView2);
+
+
+        // Se genera una referencia hacia el nodo o elemento que guardará el dato que
+        // enviaremos a la base de datos y desde el cual lo leeremos
+        final DatabaseReference messageReference = database.getReference().child(MESSAGE_CHILD);
+
+        messageReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if (dataSnapshot.getValue() != null) {
+                    textView2.setText(dataSnapshot.getValue(String.class));
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Log.d(TAG, "Fallo al leer el valor : " + databaseError.toException());
+
+            }
+        });
+
 
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Se genera una referencia hacia el nodo o elemento que guardará el dato que
-                // enviaremos a la base de datos
-                DatabaseReference messageReference = database.getReference().child(MESSAGE_CHILD);
                 String valor = editText1.getText().toString();
                 Log.d(TAG,"El valor recibido es:" + valor);
                 messageReference.setValue(valor);
