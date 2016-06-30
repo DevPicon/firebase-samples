@@ -9,4 +9,7 @@
     <string name="text_view_initial_2"><![CDATA[<< Aun no ha ingresado fruta >>]]></string>
     <string name="text_view_initial_3"><![CDATA[<< Aun no ha ingresado fruta >>]]></string>
     <string name="title_activity_main2">Firebase Sample 2</string>
+    <string name="sign_out">Salir</string>
+    <string name="delete_account_label">Eliminar cuenta</string>
+    <string name="progress_dialog_signing_up">Creando una cuenta nueva...</string>
 </resources>
